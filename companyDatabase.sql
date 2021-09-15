@@ -21,7 +21,7 @@ SELECT * FROM Employee WHERE name = 'ali';
 
 SELECT * FROM Employee WHERE salary < 1000;
 
-SELECT  avg(salary) FROM Employee;
+SELECT department, avg(salary) FROM Employee GROUP BY department;
 
 
 	
