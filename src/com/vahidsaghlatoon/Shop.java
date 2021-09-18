@@ -156,7 +156,7 @@ public class Shop {
                         ) {
                             if (customer.getUserName().equals(userName)) {
                                 if (customer.getCart().getCartProduct().size() > 0) {
-                                    System.out.print("---> Are you sure ? Yes-->1  No--> : ");
+                                    System.out.print("---> Are you sure ? Yes-->1  No-->0 : ");
                                     int choice1 = input.nextInt();
                                     if (choice1 == 1) {
                                         Products products = new Products();
@@ -171,7 +171,7 @@ public class Shop {
                                             }
                                         }
                                         cart.removeAllCartProduct();
-                                    } else
+                                    } else if(choice1 == 0)
                                         break;
                                 }
                             }
