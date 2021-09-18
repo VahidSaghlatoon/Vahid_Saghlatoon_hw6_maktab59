@@ -1,4 +1,4 @@
-package com.vahidsaghlatoon;
+package com.vahidsaghlatoon.products;
 
 public class Tv extends Electrical{
     private int size ;

@@ -1,4 +1,4 @@
-package com.vahidsaghlatoon;
+package com.vahidsaghlatoon.products;
 
 public class Official extends Shoes {
     public Official(int productID, String name, double price, int count, int size) {

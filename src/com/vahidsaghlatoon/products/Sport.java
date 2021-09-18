@@ -1,4 +1,4 @@
-package com.vahidsaghlatoon;
+package com.vahidsaghlatoon.products;
 
 public class Sport extends Shoes {
     private String type ;

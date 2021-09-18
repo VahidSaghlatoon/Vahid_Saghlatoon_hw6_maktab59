@@ -1,4 +1,4 @@
-package com.vahidsaghlatoon;
+package com.vahidsaghlatoon.products;
 
 public class Electrical extends Products {
     private int electricityConsumption;

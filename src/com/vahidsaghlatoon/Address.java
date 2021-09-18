@@ -4,13 +4,26 @@ public class Address {
     private String state ;
     private String city ;
     private String street ;
-    private int postalCode ;
+    private String postalCode ;
 
-    public Address(String state, String city, String street, int postalCode) {
+    public Address() {
+    }
+
+    public Address(String state, String city, String street, String postalCode) {
         this.state = state;
         this.city = city;
         this.street = street;
         this.postalCode = postalCode;
+    }
+
+    @Override
+    public String toString() {
+        return
+                "state='" + state + '\'' +
+                ", city='" + city + '\'' +
+                ", street='" + street + '\'' +
+                ", postalCode=" + postalCode
+                ;
     }
 
     public String getState() {
@@ -37,11 +50,11 @@ public class Address {
         this.street = street;
     }
 
-    public int getPostalCode() {
+    public String getPostalCode() {
         return postalCode;
     }
 
-    public void setPostalCode(int postalCode) {
+    public void setPostalCode(String postalCode) {
         this.postalCode = postalCode;
     }
 }

@@ -1,4 +1,4 @@
-package com.vahidsaghlatoon;
+package com.vahidsaghlatoon.products;
 
 public class Readable extends Products {
     private String type;

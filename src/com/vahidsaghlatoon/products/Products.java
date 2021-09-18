@@ -1,4 +1,4 @@
-package com.vahidsaghlatoon;
+package com.vahidsaghlatoon.products;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,7 +8,7 @@ public class Products {
     private String name ;
     private double price ;
     private int count ;
-    private List<Products> productsList = new ArrayList<>();
+    private  static List<Products> productsList = new ArrayList<>();
 
     public Products() {
     }
@@ -24,9 +24,17 @@ public class Products {
     public String toString() {
         return
                 "productID=" + productID +
-                ", name='" + name + '\'' +
+                ", name='" + name +
                 ", price=" + price +
                 ", count=" + count ;
+    }
+
+    public int getCount() {
+        return count;
+    }
+
+    public void setCount(int count) {
+        this.count = count;
     }
 
     public List<Products> getProductsList() {

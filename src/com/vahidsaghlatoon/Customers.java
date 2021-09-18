@@ -2,23 +2,24 @@ package com.vahidsaghlatoon;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class Customers {
-    private int nationalCode ;
+    private String nationalCode ;
     private String firstName ;
     private String lastName;
-    private int phone ;
+    private String phone ;
     private String email ;
     private Address address ;
     private String userName;
     private String password ;
-    private Cart cart ;
-    private List<Customers> listCustomers = new ArrayList<>();
+    private  static Cart cart = new Cart() ;
+    private  static List<Customers> listCustomers = new ArrayList<>();
 
     public Customers() {
     }
 
-    public Customers(int nationalCode, String firstName, String lastName, int phone, String email, Address address, String userName, String password) {
+    public Customers(String nationalCode, String firstName, String lastName, String phone, String email, Address address, String userName, String password) {
         this.nationalCode = nationalCode;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -27,7 +28,21 @@ public class Customers {
         this.address = address;
         this.userName = userName;
         this.password = password;
-        Cart cart = new Cart();
+    }
+
+
+    @Override
+    public String toString() {
+        return "Customer{" +
+                "nationalCode=" + nationalCode +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", phone=" + phone +
+                ", email='" + email + '\'' +
+                ", address=" + address +
+                ", userName='" + userName + '\'' +
+                ", password='" + password + '\'' +
+                '}';
     }
 
     public List<Customers> getListCustomers() {
@@ -55,11 +70,11 @@ public class Customers {
         this.password = password;
     }
 
-    public int getNationalCode() {
+    public String getNationalCode() {
         return nationalCode;
     }
 
-    public void setNationalCode(int nationalCode) {
+    public void setNationalCode(String nationalCode) {
         this.nationalCode = nationalCode;
     }
 
@@ -79,11 +94,11 @@ public class Customers {
         this.lastName = lastName;
     }
 
-    public int getPhone() {
+    public String getPhone() {
         return phone;
     }
 
-    public void setPhone(int phone) {
+    public void setPhone(String phone) {
         this.phone = phone;
     }
 

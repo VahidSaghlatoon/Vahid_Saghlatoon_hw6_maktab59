@@ -1,4 +1,4 @@
-package com.vahidsaghlatoon;
+package com.vahidsaghlatoon.products;
 
 public class Journal extends Readable {
     public Journal(int productID, String name, double price, int count, String type) {

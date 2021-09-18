@@ -1,5 +1,7 @@
 package com.vahidsaghlatoon;
 
+import com.vahidsaghlatoon.products.Products;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -7,20 +9,27 @@ import java.util.Scanner;
 public class Cart {
     private List<Products> cartProduct = new ArrayList<>();
 
-    public void addProduct() {
-        Scanner input = new Scanner(System.in);
-        ConsoleScanner consoleScanner = new ConsoleScanner();
-        System.out.println("enter product id : ");
-        int id = input.nextInt();
-                for (Products product : consoleScanner.getProductsList()
-                ) {
-                    if (product.getProductID() == id) {
-                        cartProduct.add(product);
-                        System.out.println("-----added to cart-----");
-                    } else
-                        System.out.println("-----product id invalid-----");
+    public List<Products> getCartProduct() {
+        return cartProduct;
+    }
+
+
+    public void addProduct(int id) {
+        Products products = new Products();
+        for (Products product : products.getProductsList()
+        ) {
+            if (product.getProductID() == id) {
+                if (product.getCount() > 0) {
+                    cartProduct.add(product);
+                    System.out.println("----product added----");
+                } else if (product.getCount() == 0) {
+                    System.out.println("---- all of this product sold-----");
                 }
+            }
         }
+
+    }
+
 
     public void sumOfPriceProduct() {
         double totalPrice = 0;
@@ -28,33 +37,38 @@ public class Cart {
             for (Products product : cartProduct) {
                 totalPrice += product.getPrice();
             }
-        System.out.println("sum of price in cart is : " + totalPrice);
+        System.out.println("------sum of price in cart is : " + totalPrice + "-----");
 
     }
 
     public void removeProduct(int id) {
         if (cartProduct.size() > 0)
-            for (Products choice : cartProduct) {
-                if (choice.getProductID() == id)
-                    cartProduct.remove(choice);
+            for (Products product : cartProduct) {
+                if (product.getProductID() == id) {
+                    cartProduct.remove(product);
+                    System.out.println("----product removed----");
+                    break;
+                }
             }
+        else if (cartProduct.size() == 0)
+            System.out.println("----cart is empty----");
+        else
+            System.out.println("----invalid product id----");
+
     }
 
     public void showCartProduct() {
-        ConsoleScanner consoleScanner = new ConsoleScanner();
-        Scanner input = new Scanner(System.in);
-        System.out.println("Enter user name : ");
-        String userName = input.next();
-        for (Customers customer : consoleScanner.getListCustomers()
-        ) {
-            if (customer.getUserName().equals(userName)){
-                for (Products product : cartProduct
-                ) {
-                    System.out.println(product.toString());
-                }
+        if (cartProduct.size() > 0) {
+            for (Products product : cartProduct
+            ) {
+                System.out.println(product.toString());
             }
-
-        }
-
+        } else
+            System.out.println("----cart is empty----");
     }
+
+    public void removeAllCartProduct() {
+        cartProduct.removeAll(cartProduct);
+    }
+
 }
