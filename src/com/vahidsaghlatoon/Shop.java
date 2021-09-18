@@ -69,30 +69,27 @@ public class Shop {
         String userName = "";
         String password;
         if (customers.getListCustomers().size() > 0) {
-            while (true) {
-                System.out.println("------Login------");
-                System.out.print("Enter user name : ");
-                userName = input.next();
-                for (Customers customer : customers.getListCustomers()
-                ) {
-                    if (customer.getUserName().equals(userName)) {
-                        System.out.print("Enter password : ");
-                        password = input.next();
-                        if (checkUserPass(userName, password)) {
-                            System.out.println("----Welcome " + userName + "----");
-                            break;
-                        } else {
-                            userName = "";
-                            System.out.println("----password is invalid----");
-                            System.out.println("----try agian----");
-                        }
+            System.out.println("------Login------");
+            System.out.print("Enter user name : ");
+            userName = input.next();
+            for (Customers customer : customers.getListCustomers()
+            ) {
+                if (customer.getUserName().equals(userName)) {
+                    System.out.print("Enter password : ");
+                    password = input.next();
+                    if (checkUserPass(userName, password)) {
+                        System.out.println("----Welcome " + userName + "----");
+                        break;
                     } else {
                         userName = "";
-                        System.out.println("----invalid user name / dont have register----");
-                        break;
+                        System.out.println("----password is invalid----");
+                        System.out.println("----try agian----");
                     }
+                } else {
+                    userName = "";
+                    System.out.println("----invalid user name / dont have register----");
+                    break;
                 }
-                break;
             }
         } else
             System.out.println("----register please -----");
@@ -115,7 +112,7 @@ public class Shop {
         Customers customers = new Customers();
         Scanner input = new Scanner(System.in);
         boolean check = true;
-        if (userName != "") {
+        if (!userName.equals("")) {
             while (check) {
                 Print.buyMenu();
                 int choice = input.nextInt();
@@ -163,8 +160,7 @@ public class Shop {
                                     int choice1 = input.nextInt();
                                     if (choice1 == 1) {
                                         Products products = new Products();
-                                        Cart cart = new Cart();
-                                        cart = customer.getCart();
+                                        Cart cart = customer.getCart();
                                         for (Products cartProduct : cart.getCartProduct()
                                         ) {
                                             for (Products product : products.getProductsList()
